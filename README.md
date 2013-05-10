@@ -66,7 +66,7 @@ Usage Instructions
 ------------------
 Planned usage is as follows:
 
-To add a new task:
+To add a new school to the database:
 
     > ct add new school
 
