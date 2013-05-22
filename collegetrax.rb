@@ -11,14 +11,10 @@ rank = ARGV[3]
 
 params = { command: command, visit: { school_name: name, visit_date: date, ranking: rank }}
 controller = CollegeTraxController.new(params)
+routes = { "add" => :create_visit, "list_schools" => :index, "remove" => :destroy}
 
-
-if command == "add"
-  controller.create_visit
-elsif command == "list_schools"
-  controller.index
-elsif command == "remove"
-  controller.destroy
+if route = routes[command]
+  controller.send route
 else
   unless command == "help"
     puts "CollegeTrax does not (yet?) support the '#{command}' command.\n\n"
