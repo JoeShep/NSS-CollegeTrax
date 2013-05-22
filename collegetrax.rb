@@ -11,7 +11,8 @@ rank = ARGV[3]
 
 params = { command: command, visit: { school_name: name, visit_date: date, ranking: rank }}
 controller = CollegeTraxController.new(params)
-routes = { "add" => :create_visit, "list_schools" => :index, "remove" => :destroy}
+routes = { "add" => :create_visit, "list_schools" => :index, "remove" => :destroy,
+           "list_rankings" => :index_rankings}
 
 if route = routes[command]
   controller.send route

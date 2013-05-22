@@ -16,7 +16,7 @@ class TestAddingVisit < MiniTest::Unit::TestCase
 
   def test_takes_2_visit_arguments_and_puts_them_in_columns
     `./collegetrax.rb add "School U", "Feb 4, 2024"`
-    assert_equal "02/04/2024", "#{Visit.last.formatted_date}"
+    assert_equal "02/04/24", "#{Visit.last.formatted_date}"
   end
 
   def test_takes_3_visit_arguments_and_puts_them_in_columns
@@ -26,17 +26,12 @@ class TestAddingVisit < MiniTest::Unit::TestCase
 
   def test_takes_any_format_of_date_and_prints_slash_format
     `./collegetrax.rb add "School U", "Feb 4, 2014", 3`
-    assert_equal "02/04/2014", Visit.last.formatted_date
+    assert_equal "02/04/14", Visit.last.formatted_date
   end
-
-  # def test_takes_any_format_of_date_and_prints_slash_format2
-  #   `./collegetrax.rb add "School U", "2/4/14", 3`
-  #   assert_equal "02/04/2014", Visit.last.formatted_date
-  # end
 
   def test_takes_any_format_of_date_and_prints_slash_format
     `./collegetrax.rb add "School U", "February 4th, 2014", 3`
-    assert_equal "02/04/2014", Visit.last.formatted_date
+    assert_equal "02/04/14", Visit.last.formatted_date
   end
 
 
