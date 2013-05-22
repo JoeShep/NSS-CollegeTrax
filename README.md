@@ -15,7 +15,13 @@ Many students visit multiple schools, sometimes over a very short period of time
 
 Project Status / TODO
 ---------------------
-This project is currently in the planning stages.
+May 22:
+This project is in initial TDD stages.
+Current functionality:
+Takes three arguments (School name, visit date, single ranking number)
+Prints all schools, with visit date and ranking in order of entry
+Prints schools with user ranking, from highest to lowest rank.
+Deletes any record by school name.
 
 Features
 --------
@@ -68,23 +74,23 @@ Planned usage is as follows:
 
 To add a new school to the database:
 
-    > ct add new school
+    > ./collegetrax.rb add "<school name>"
 
 To view the list of all entered schools:
 
-    > ct list schools
+    > ./collegetrax.rb list_schools
 
 To view a school:
 
-    > ct view school "<school name>"
+    > ./collegetrax.rb view school "<school name>"
 
 To remove a school:
 
-    > ct remove school "<school name>"
+    > ./collegetrax.rb remove "<school name>"
 
 To view the list of all entered schools by highest average ranking:
 
-    > ct list ranking
+    > ./collegetrax.rb list_rankings
 
 *Other instructions to come*
 
