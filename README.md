@@ -15,6 +15,20 @@ Many students visit multiple schools, sometimes over a very short period of time
 
 Project Status / TODO
 ---------------------
+May 24:
+In transition from simple, single method for adding three arguments at once to using text
+prompts to generate the table data.
+TODO:
+<ul>
+  <li>Add ability to store yes/no questions about the visit (columns have been created).</li>
+  <li>Add ranking text prompts.</li>
+  <li>Create rankings table.</li>
+  <li>Add ability to store rankings.</li>
+  <li>Add ability to average rankings into one super-score.</li>
+  <li>Change name of executable for easier user experience.</li>
+  <li>Add ability to choose a school from the visits list and see all the data about that school.</li>
+</ul>
+
 May 22:
 This project is in initial TDD stages.
 Current functionality:
