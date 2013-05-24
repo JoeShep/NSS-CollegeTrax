@@ -11,12 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130520113300) do
+ActiveRecord::Schema.define(:version => 20130524122800) do
 
   create_table "visits", :force => true do |t|
     t.string "school_name"
     t.date   "visit_date"
     t.float  "ranking"
+    t.string "contact_name"
+    t.string "contat_email"
+    t.string "contact_phone"
+    t.text   "in_session"
+    t.text   "tour"
+    t.text   "interview"
+    t.text   "info_session"
+    t.text   "overnight"
+    t.text   "class_visit"
   end
 
 end

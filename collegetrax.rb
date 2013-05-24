@@ -18,14 +18,12 @@ routes = {"add" => :create_visit, "list" => :index, "remove" => :destroy,
 
 if command.nil?
   Menu.print_menu
-# elsif name.nil?
-#   TextPrompts.add_school
 elsif route = routes[command]
   controller.send route
 else
-  unless command == "help"
+  # unless command == "help"
     puts "CollegeTrax does not (yet?) support the '#{command}' command.\n\n"
-  end
+  # end
   puts <<EOS
 Currently supported commands are:
 * trax add <school_name>

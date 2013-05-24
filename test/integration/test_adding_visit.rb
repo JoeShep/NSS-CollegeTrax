@@ -50,16 +50,6 @@ EOS
     assert_equal "02/04/24", "#{Visit.last.formatted_date}"
   end
 
-  # def test_takes_3_visit_arguments_and_puts_them_in_columns
-  #   `./collegetrax.rb add "School U", "Feb 4, 2024", 3.75`
-  #   assert_equal 3.75, Visit.last.ranking
-  # end
-
-  # def test_takes_any_format_of_date_and_prints_slash_format
-  #   `./collegetrax.rb add "School U", "Feb 4, 2014", 3`
-  #   assert_equal "02/04/14", Visit.last.formatted_date
-  # end
-
   def test_takes_any_format_of_date_and_prints_slash_format
     `./collegetrax.rb add "School U", "February 4th, 2014", 3`
     assert_equal "02/04/14", Visit.last.formatted_date
