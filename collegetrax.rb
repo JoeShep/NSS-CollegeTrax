@@ -4,17 +4,23 @@ require_relative 'bootstrap_ar'
 database = ENV['FP_ENV'] || 'development'
 connect_to database
 
-command = ARGV[0]
-name = ARGV[1]
-date = ARGV[2]
-rank = ARGV[3]
+command = nil
+name = nil
+command = ARGV[0].downcase unless ARGV[0].nil?
+name    = ARGV[1]
+date    = ARGV[2]
 
-params = { command: command, visit: { school_name: name, visit_date: date, ranking: rank }}
+
+params = { command: command, visit: { school_name: name, visit_date: date}}
 controller = CollegeTraxController.new(params)
-routes = { "add" => :create_visit, "list_schools" => :index, "remove" => :destroy,
-           "list_rankings" => :index_rankings}
+routes = {"add" => :create_visit, "list" => :index, "remove" => :destroy,
+           "rankings" => :index_rankings, "view" => :display_school}
 
-if route = routes[command]
+if command.nil?
+  Menu.print_menu
+# elsif name.nil?
+#   TextPrompts.add_school
+elsif route = routes[command]
   controller.send route
 else
   unless command == "help"
@@ -22,9 +28,10 @@ else
   end
   puts <<EOS
 Currently supported commands are:
-* ctrax add <school_name>
-* ctrax list_schools
-* ctrax remove <school_name>
+* trax add <school_name>
+* trax list
+* trax rankings
+* trax remove <school_name>
 
 See the README for more details
 EOS
