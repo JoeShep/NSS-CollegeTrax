@@ -40,15 +40,15 @@ EOS
     assert_equal 1, Visit.count
   end
 
-  # def test_takes_1_visit_argument_and_puts_it_in_column
-  #   `./collegetrax.rb add "School U"`
-  #   assert_equal "School U", Visit.last.school_name
-  # end
+  def test_takes_1_visit_argument_and_puts_it_in_column
+    `./collegetrax.rb add "School U"`
+    assert_equal "School U", Visit.last.school_name
+  end
 
-  # def test_takes_2_visit_arguments_and_puts_them_in_columns
-  #   `./collegetrax.rb add "School U", "Feb 4, 2024"`
-  #   assert_equal "02/04/24", "#{Visit.last.formatted_date}"
-  # end
+  def test_takes_2_visit_arguments_and_puts_them_in_columns
+    `./collegetrax.rb add "School U", "Feb 4, 2024"`
+    assert_equal "02/04/24", "#{Visit.last.formatted_date}"
+  end
 
   # def test_takes_3_visit_arguments_and_puts_them_in_columns
   #   `./collegetrax.rb add "School U", "Feb 4, 2024", 3.75`
@@ -60,10 +60,10 @@ EOS
   #   assert_equal "02/04/14", Visit.last.formatted_date
   # end
 
-  # def test_takes_any_format_of_date_and_prints_slash_format
-  #   `./collegetrax.rb add "School U", "February 4th, 2014", 3`
-  #   assert_equal "02/04/14", Visit.last.formatted_date
-  # end
+  def test_takes_any_format_of_date_and_prints_slash_format
+    `./collegetrax.rb add "School U", "February 4th, 2014", 3`
+    assert_equal "02/04/14", Visit.last.formatted_date
+  end
 
 
 end

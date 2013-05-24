@@ -25,7 +25,7 @@ class CollegeTraxController
   def index
     visits = Visit.all
     visits.each_with_index do |visit, i|
-      puts "#{i+1}. #{visit.school_name} visited on #{visit.formatted_date}. My overall rank: #{visit.ranking} out of 5"
+      puts "#{i+1}. #{visit.school_name}, visited on #{visit.formatted_date}." # My overall rank: #{visit.ranking} out of 5
     end
   end
 
