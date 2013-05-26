@@ -21,9 +21,7 @@ if command.nil?
 elsif route = routes[command]
   controller.send route
 else
-  # unless command == "help"
     puts "CollegeTrax does not (yet?) support the '#{command}' command.\n\n"
-  # end
   puts <<EOS
 Currently supported commands are:
 * trax add <school_name>

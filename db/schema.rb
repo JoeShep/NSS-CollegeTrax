@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130524122800) do
+ActiveRecord::Schema.define(:version => 20130525080200) do
+
+  create_table "rankings", :force => true do |t|
+    t.float   "dorms"
+    t.float   "campus"
+    t.float   "food_campus"
+    t.float   "food_off_campus"
+    t.float   "majors"
+    t.float   "town"
+    t.float   "library"
+    t.float   "students"
+    t.float   "classrooms"
+    t.float   "student_center"
+    t.float   "intramural_sports"
+    t.float   "other_activities"
+    t.integer "visit_id"
+    t.float   "diets"
+  end
 
   create_table "visits", :force => true do |t|
     t.string "school_name"
