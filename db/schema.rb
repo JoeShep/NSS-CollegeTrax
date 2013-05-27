@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525080200) do
+ActiveRecord::Schema.define(:version => 20130526091200) do
 
   create_table "rankings", :force => true do |t|
     t.float   "dorms"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130525080200) do
     t.float   "other_activities"
     t.integer "visit_id"
     t.float   "diets"
+    t.float   "overall"
   end
 
   create_table "visits", :force => true do |t|

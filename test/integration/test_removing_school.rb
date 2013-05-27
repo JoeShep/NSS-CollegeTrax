@@ -6,7 +6,7 @@ class TestRemovingVisit < MiniTest::Unit::TestCase
 
   def test_remove_only_visit
     Visit.create(school_name: "foo", visit_date: "April 22, 2014")
-    `./collegetrax.rb remove "foo"`
+    `./trax remove "foo"`
     assert Visit.all.empty?
   end
 
@@ -15,7 +15,7 @@ class TestRemovingVisit < MiniTest::Unit::TestCase
     Visit.create(school_name: "B", visit_date: "April 22, 2014")
     Visit.create(school_name: "C", visit_date: "April 22, 2014")
     assert !Visit.where( school_name: "B").all.empty?
-    `./collegetrax.rb remove "B"`
+    `./trax remove "B"`
     assert Visit.where( school_name: "B").all.empty?
     assert_equal 2, Visit.count
   end

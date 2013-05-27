@@ -13,8 +13,8 @@ date    = ARGV[2]
 
 params = { command: command, visit: { school_name: name, visit_date: date}}
 controller = CollegeTraxController.new(params)
-routes = {"add" => :create_visit, "list" => :index, "remove" => :destroy,
-           "rankings" => :index_rankings, "view" => :display_school}
+routes = {"add" => :create_visit, "list" => :index_all, "remove" => :destroy,
+           "rankings" => :index_rankings, "view" => :index_school}
 
 if command.nil?
   Menu.print_menu

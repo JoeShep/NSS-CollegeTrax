@@ -8,7 +8,7 @@ class CollegeTraxController
 
   def create_visit
     if params[:visit][:school_name].nil?
-      puts "   Enter the name of a school you have visited:"
+      puts "\n   Enter the name of a school you have visited:"
         name = $stdin.gets.chomp
       puts "   Enter the date of your visit. Include the month, date and year:"
         date = $stdin.gets.chomp
@@ -66,14 +66,14 @@ class CollegeTraxController
     class_visit: visit_data["classes"]
     )
     puts "\n" + "    Your tracker has been updated! Ready to enter your rankings for #{Visit.last.school_name}?" + "\n"
-    $stdin.gets.chomp == "y" ? get_rankings : skip_rankings
+    $stdin.gets.chomp == "y" ? get_rankings(Visit.last.school_name) : skip_rankings
   end
 
-  def get_rankings
+  def get_rankings(school)
     rankings = {}
     puts ranking_prompt
-    puts "1) Campus appearance"
-      rankings["campus"] = $stdin.gets.chomp
+    puts "1) My overall ranking for #{school}"
+      rankings["overall"] = $stdin.gets.chomp
     puts "2) Dorms"
       rankings["dorms"] = $stdin.gets.chomp
     puts "3) Dining services (Food quality)"
@@ -96,11 +96,14 @@ class CollegeTraxController
       rankings["sports"] = $stdin.gets.chomp
     puts "12) Other activities and clubs"
       rankings["clubs"] = $stdin.gets.chomp
+    puts "13) Campus appearance"
+      rankings["campus"] = $stdin.gets.chomp
     add_rankings(rankings)
   end
 
   def add_rankings(rankings)
     scores = Visit.last.build_ranking(
+    overall: rankings["overall"],
     dorms: rankings["dorms"],
     campus: rankings["campus"],
     food_campus: rankings["dining"],
@@ -121,17 +124,29 @@ class CollegeTraxController
     end
   end
 
-  def index
+  def index_all
     visits = Visit.all
     visits.each_with_index do |visit, i|
-      puts "#{i+1}. #{visit.school_name}, visited on #{visit.formatted_date}." # My overall rank: #{visit.ranking} out of 5
+      if visit.id.odd?
+      puts "\x1b[7m#{i+1}. #{visit.school_name}, visited on #{visit.formatted_date}.\x1b[0m" # My overall rank: #{visit.ranking} out of 5
+      else
+      puts "#{i+1}. #{visit.school_name}, visited on #{visit.formatted_date}."
     end
   end
+  end
+
+  def index_school
+    school=Visit.where("school_name = ?", params[:visit][:school_name]).first
+    puts format_tracker(school)
+  end
+
+  # def average_rank
+  #   average =
 
   def index_rankings
     visits = Visit.order("ranking DESC")
     visits.each_with_index do |visit, i|
-      puts "#{i+1}. #{visit.school_name} Average rank: #{visit.rankings}"
+      puts "\x1b[35m" + "#{i+1}. #{visit.school_name} Average rank: #{visit.rankings}" + "\x1b[0m"
     end
   end
 
