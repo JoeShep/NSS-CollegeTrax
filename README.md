@@ -15,7 +15,7 @@ Many students visit multiple schools, sometimes over a very short period of time
 
 Project Status / TODO
 ---------------------
-May 27:
+5/27/13:
 App is functional. User can add schools, visit info, and rankings and can view a list of all schools and a detailed view of each school's data.
 
 TODO:
@@ -27,22 +27,23 @@ TODO:
   <li> Add feature to list all schools by overall ranking</li>
   <li> Add method to average the rankings</li>
   <li> Add feature to weigh ranking categories by importance</li>
-
-May 24:
+</ul>
+5/24/13:
 In transition from simple, single method for adding three arguments at once to using text
 prompts to generate the table data.
+
 TODO:
 <ul>
-  √<li>Add ability to store yes/no questions about the visit (columns have been created).</li>
-  √<li>Add ranking text prompts.</li>
-  √<li>Create rankings table.</li>
-  √<li>Add ability to store rankings.</li>
+ <li> √ Add ability to store yes/no questions about the visit (columns have been created).</li>
+  <li> √ Add ranking text prompts.</li>
+  <li>√ Create rankings table.</li>
+  <li>√ Add ability to store rankings.</li>
   <li>Add ability to average rankings into one super-score.</li>
-  √<li>Change name of executable for easier user experience.</li>
-  √<li>Add ability to choose a school from the visits list and see all the data about that school.</li>
+  <li>√ Change name of executable for easier user experience.</li>
+  <li>√ Add ability to choose a school from the visits list and see all the data about that school.</li>
 </ul>
 
-May 22:
+5/22/13:
 This project is in initial TDD stages.
 Current functionality:
 Takes three arguments (School name, visit date, single ranking number)
