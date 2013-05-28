@@ -10,7 +10,7 @@ class CollegeTraxController
     if params[:visit][:school_name].nil?
       puts "\n   Enter the name of a school you have visited:"
         name = $stdin.gets.chomp
-      puts "   Enter the date of your visit. Include the month, date and year:"
+      puts "   Enter the date of your visit (Month DD, YYYY):"
         date = $stdin.gets.chomp
       visit = Visit.create(school_name: name, visit_date: date)
     else
@@ -20,14 +20,16 @@ class CollegeTraxController
       puts "\n" + "    Your visit to #{Visit.last.school_name} on #{Visit.last.formatted_date} has been saved to your tracker!"
     else
       puts "\n" + "    Failure :( #{visit.errors.full_messages.join(", ")}"
+      params[:visit][:school_name]=nil
+      create_visit
     end
-    get_visit_data
+    # get_visit_data
   end
 
   def get_visit_data
     visit_data = {}
   puts contact_prompt
-  if $stdin.gets.chomp == "n"
+  if $stdin.gets.chomp.downcase == "n"
     puts yes_no_prompt1
   else
     puts "Enter contact name:"
@@ -66,10 +68,13 @@ class CollegeTraxController
     class_visit: visit_data["classes"]
     )
     puts "\n" + "    Your tracker has been updated! Ready to enter your rankings for #{Visit.last.school_name}?" + "\n"
-    $stdin.gets.chomp == "y" ? get_rankings(Visit.last.school_name) : skip_rankings
+    $stdin.gets.chomp.downcase == "y" ? get_rankings(Visit.last.school_name) : skip_rankings
   end
 
-  def get_rankings(school)
+  def get_rankings(school=nil)
+    if school.nil?
+      school= params[:visit][:school_name]
+    end
     rankings = {}
     puts ranking_prompt
     puts "1) My overall ranking for #{school}"
@@ -92,23 +97,26 @@ class CollegeTraxController
       rankings["students"] = $stdin.gets.chomp
     puts "10) Surrounding town/city"
       rankings["town"] = $stdin.gets.chomp
-    puts "11) Intramural sports"
+    puts "12) Off-campus food choices"
+      rankings["food_off_campus"] = $stdin.gets.chomp
+    puts "13) Intramural sports"
       rankings["sports"] = $stdin.gets.chomp
-    puts "12) Other activities and clubs"
+    puts "14) Other activities and clubs"
       rankings["clubs"] = $stdin.gets.chomp
-    puts "13) Campus appearance"
+    puts "15) Campus appearance"
       rankings["campus"] = $stdin.gets.chomp
-    add_rankings(rankings)
+    add_rankings(rankings, school)
   end
 
-  def add_rankings(rankings)
-    scores = Visit.last.build_ranking(
+  def add_rankings(rankings, school)
+    scores = Visit.where("school_name = ?", school).first.build_ranking(
     overall: rankings["overall"],
     dorms: rankings["dorms"],
     campus: rankings["campus"],
     food_campus: rankings["dining"],
     majors: rankings["majors"],
     town: rankings["town"],
+    food_off_campus: rankings["food_off_campus"],
     library: rankings["library"],
     students: rankings["students"],
     classrooms: rankings["classrooms"],
@@ -140,13 +148,10 @@ class CollegeTraxController
     puts format_tracker(school)
   end
 
-  # def average_rank
-  #   average =
-
   def index_rankings
     visits = Visit.order("ranking DESC")
     visits.each_with_index do |visit, i|
-      puts "\x1b[35m" + "#{i+1}. #{visit.school_name} Average rank: #{visit.rankings}" + "\x1b[0m"
+      puts "\x1b[35m" + "#{i+1}. #{visit.school_name}. My overall rank: #{visit.rankings}" + "\x1b[0m"
     end
   end
 

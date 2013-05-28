@@ -19,12 +19,13 @@ EOS
 
                         CollegeTrax Menu
 
-Return to this menu                          \x1b[35mtrax\x1b[0m
-Add a new school to your tracker:            \x1b[35mtrax add\x1b[0m
-View a list of schools in your tracker:      \x1b[35mtrax list\x1b[0m
-View a full visit report for a school:       \x1b[35mtrax view "<school name in quotes>"\x1b[0m
-View all schools by your average ranking:    \x1b[35mtrax rankings\x1b[0m
-Delete an existing school from your tracker: \x1b[35mtrax remove "<school name in quotes>"\x1b[0m
+Return to this menu                          \x1b[35m./trax\x1b[0m
+Add a new school to your tracker:            \x1b[35m./trax add\x1b[0m
+Add rankings to a school in your tracker:    \x1b[35m./trax rank "School Name in quotes"\x1b[0m
+View a list of schools in your tracker:      \x1b[35m./trax list\x1b[0m
+View a full visit report for a school:       \x1b[35m./trax view "School Name in quotes"\x1b[0m
+View all schools by your overall ranking:    \x1b[35m./trax rankings\x1b[0m
+Delete an existing school from your tracker: \x1b[35m./trax remove "School Name in quotes"\x1b[0m
 
 EOS
 

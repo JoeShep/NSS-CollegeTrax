@@ -14,7 +14,7 @@ date    = ARGV[2]
 params = { command: command, visit: { school_name: name, visit_date: date}}
 controller = CollegeTraxController.new(params)
 routes = {"add" => :create_visit, "list" => :index_all, "remove" => :destroy,
-           "rankings" => :index_rankings, "view" => :index_school}
+           "rank" => :get_rankings, "rankings" => :index_rankings, "view" => :index_school}
 
 if command.nil?
   Menu.print_menu
@@ -24,10 +24,12 @@ else
     puts "CollegeTrax does not (yet?) support the '#{command}' command.\n\n"
   puts <<EOS
 Currently supported commands are:
-* trax add <school_name>
-* trax list
-* trax rankings
-* trax remove <school_name>
+* ./trax
+* ./trax add
+* ./trax rank "School Name in quotes"
+* ./trax list
+* ./trax rankings
+* ./trax remove "School Name in quotes"
 
 See the README for more details
 EOS
