@@ -138,6 +138,7 @@ Known Bugs
 <li>Entering ./trax add "School Name" saves to tracker but no way to go back and add visit date.</li>
 <li>Rankings above "5" can be entered and saved.</li>
 <li>Listing schools by rating not functioning.</li>
+</ul>
 
 Author
 ------
