@@ -79,7 +79,7 @@ College town<br>
 Library<br>
 Student friendliness<br>
 Facilities (classrooms/labs/student center)<br>
-**Categories will be weighted by user-customized importance kinda/very/uber**
+Categories will be weighted by user-customized importance kinda/very/uber
 
 **A generated report with the following:**<br>
 General info entered by user<br>
@@ -98,27 +98,28 @@ display visit data input areas
 
 Usage Instructions
 ------------------
-Planned usage is as follows:
+Current usage is as follows:
+
+To launch app/load menu 
+
+    > ./trax 
 
 To add a new school to the database:
 
-    > ./collegetrax.rb add "<school name>"
+    > ./trax add "School Name"
 
 To view the list of all entered schools:
 
-    > ./collegetrax.rb list_schools
+    > ./trax list
 
 To view a school:
 
-    > ./collegetrax.rb view school "<school name>"
+    > ./trax view "School Name"
 
 To remove a school:
 
-    > ./collegetrax.rb remove "<school name>"
+    > ./trax remove "School Name"
 
-To view the list of all entered schools by highest average ranking:
-
-    > ./collegetrax.rb list_rankings
 
 *Other instructions to come*
 
@@ -129,7 +130,12 @@ To demo the app, you'll have to download it and try it yourself.
 
 Known Bugs
 ----------
-None, yet! But just wait.
+5/28 
+Entering date in unrecognized format throws error.
+Entering duplicate school name fails validation, but method continues running
+Entering ./trax add "School Name" saves to tracker but no way to go back and add visit date.
+Rankings above "5" can be entered and saved
+Listing schools by rating not functioning
 
 Author
 ------
