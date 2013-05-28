@@ -131,11 +131,13 @@ To demo the app, you'll have to download it and try it yourself.
 Known Bugs
 ----------
 5/28 
-Entering date in unrecognized format throws error.
-Entering duplicate school name fails validation, but method continues running
-Entering ./trax add "School Name" saves to tracker but no way to go back and add visit date.
-Rankings above "5" can be entered and saved
-Listing schools by rating not functioning
+
+<ul>
+<li>Entering date in unrecognized format throws error.</li>
+<li>Entering duplicate school name fails validation, but method continues running.</li>
+<li>Entering ./trax add "School Name" saves to tracker but no way to go back and add visit date.</li>
+<li>Rankings above "5" can be entered and saved.</li>
+<li>Listing schools by rating not functioning.</li>
 
 Author
 ------
