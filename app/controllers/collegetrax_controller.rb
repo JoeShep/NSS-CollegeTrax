@@ -23,7 +23,7 @@ class CollegeTraxController
       params[:visit][:school_name]=nil
       create_visit
     end
-    # get_visit_data
+    get_visit_data
   end
 
   def get_visit_data
@@ -40,17 +40,17 @@ class CollegeTraxController
       visit_data["phone"] = $stdin.gets.chomp
     puts yes_no_prompt2
   end
-    puts "Was school in session?"
+    puts "  Was school in session?"
       visit_data["session"] = $stdin.gets.chomp
-    puts "Did you take a guided tour?"
+    puts "  Did you take a guided tour?"
       visit_data["tour"] = $stdin.gets.chomp
-    puts "Did you do an admissions interview?"
+    puts "  Did you do an admissions interview?"
       visit_data["interview"] = $stdin.gets.chomp
-    puts "Did you attend an info session?"
+    puts "  Did you attend an info session?"
       visit_data["info"] = $stdin.gets.chomp
-    puts "Did you stay overnight on campus?"
+    puts "  Did you stay overnight on campus?"
       visit_data["overnight"] = $stdin.gets.chomp
-    puts "Did you attend any classes?"
+    puts "  Did you attend any classes?"
       visit_data["classes"] = $stdin.gets.chomp
     add_visit_data(visit_data)
   end
@@ -77,33 +77,33 @@ class CollegeTraxController
     end
     rankings = {}
     puts ranking_prompt
-    puts "1) My overall ranking for #{school}"
+    puts "  1) My overall ranking for #{school}"
       rankings["overall"] = $stdin.gets.chomp
-    puts "2) Dorms"
+    puts "  2) Dorms"
       rankings["dorms"] = $stdin.gets.chomp
-    puts "3) Dining services (Food quality)"
+    puts "  3) Dining services (Food quality)"
       rankings["dining"] = $stdin.gets.chomp
-    puts "4) Dining services (Special diets accessibility)"
+    puts "  4) Dining services (Special diets accessibility)"
       rankings["diets"] = $stdin.gets.chomp
-    puts "5) Classes/majors offerings"
+    puts "  5) Classes/majors offerings"
       rankings["majors"] = $stdin.gets.chomp
-    puts "6) Library facilities"
+    puts "  6) Library facilities"
       rankings["library"] = $stdin.gets.chomp
-    puts "7) Classroom facilities"
+    puts "  7) Classroom facilities"
       rankings["classrooms"] = $stdin.gets.chomp
-    puts "8) Student center"
+    puts "  8) Student center"
       rankings["s_center"] = $stdin.gets.chomp
-    puts "9) The students themselves"
+    puts "  9) The students themselves"
       rankings["students"] = $stdin.gets.chomp
-    puts "10) Surrounding town/city"
+    puts "  10) Surrounding town/city"
       rankings["town"] = $stdin.gets.chomp
-    puts "12) Off-campus food choices"
+    puts "  12) Off-campus food choices"
       rankings["food_off_campus"] = $stdin.gets.chomp
-    puts "13) Intramural sports"
+    puts "  13) Intramural sports"
       rankings["sports"] = $stdin.gets.chomp
-    puts "14) Other activities and clubs"
+    puts "  14) Other activities and clubs"
       rankings["clubs"] = $stdin.gets.chomp
-    puts "15) Campus appearance"
+    puts "  15) Campus appearance"
       rankings["campus"] = $stdin.gets.chomp
     add_rankings(rankings, school)
   end
@@ -135,8 +135,8 @@ class CollegeTraxController
   def index_all
     visits = Visit.all
     visits.each_with_index do |visit, i|
-      if visit.id.odd?
-      puts "\x1b[7m#{i+1}. #{visit.school_name}, visited on #{visit.formatted_date}.\x1b[0m" # My overall rank: #{visit.ranking} out of 5
+      if i.odd?
+      puts "\x1b[7m#{i+1}. #{visit.school_name}, visited on #{visit.formatted_date}.\x1b[0m"
       else
       puts "#{i+1}. #{visit.school_name}, visited on #{visit.formatted_date}."
     end
@@ -151,7 +151,7 @@ class CollegeTraxController
   def index_rankings
     visits = Visit.order("ranking DESC")
     visits.each_with_index do |visit, i|
-      puts "\x1b[35m" + "#{i+1}. #{visit.school_name}. My overall rank: #{visit.rankings}" + "\x1b[0m"
+      puts "\x1b[7m" + "#{i+1}. #{visit.school_name}. My overall rank: #{visit.ranking["overall"]}" + "\x1b[0m"
     end
   end
 
