@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/JoeShep/NSS-CollegeTrax.png)](https://travis-ci.org/JoeShep/NSS-CollegeTrax)
+
+
 NSS-CollegeTrax
 =====================
 
