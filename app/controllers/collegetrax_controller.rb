@@ -23,7 +23,7 @@ class CollegeTraxController
       params[:visit][:school_name]=nil
       create_visit
     end
-    get_visit_data
+    # get_visit_data
   end
 
   def get_visit_data
@@ -32,11 +32,11 @@ class CollegeTraxController
   if $stdin.gets.chomp.downcase == "n"
     puts yes_no_prompt1
   else
-    puts "Enter contact name:"
+    puts "  Enter contact name:"
       visit_data["name"] = $stdin.gets.chomp
-    puts "Enter contact_email:"
+    puts "  Enter contact_email:"
       visit_data["email"] = $stdin.gets.chomp
-    puts "Enter contact_phone:"
+    puts "  Enter contact_phone:"
       visit_data["phone"] = $stdin.gets.chomp
     puts yes_no_prompt2
   end
@@ -73,7 +73,7 @@ class CollegeTraxController
 
   def get_rankings(school=nil)
     if school.nil?
-      school= params[:visit][:school_name]
+      school = params[:visit][:school_name]
     end
     rankings = {}
     puts ranking_prompt
@@ -133,6 +133,7 @@ class CollegeTraxController
   end
 
   def index_all
+    puts "\n"
     visits = Visit.all
     visits.each_with_index do |visit, i|
       if i.odd?
@@ -141,6 +142,7 @@ class CollegeTraxController
       puts "#{i+1}. #{visit.school_name}, visited on #{visit.formatted_date}."
     end
   end
+    puts "\n"
   end
 
   def index_school

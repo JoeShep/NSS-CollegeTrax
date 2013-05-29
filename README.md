@@ -26,7 +26,8 @@ TODO:
   <li> Add ability to type school's list/index # when viewing list of schools to see its info.</li>
   <li> Add feature to list all schools by overall ranking</li>
   <li> Add method to average the rankings</li>
-  <li> Add feature to weigh ranking categories by importance</li>
+  <li> Add feature to weigh ranking categories by importance.
+</ul>
 
 May 24:
 In transition from simple, single method for adding three arguments at once to using text
