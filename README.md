@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/JoeShep/NSS-CollegeTrax.png)](https://travis-ci.org/JoeShep/NSS-CollegeTrax)
+
+
 NSS-CollegeTrax
 =====================
 
@@ -15,7 +18,7 @@ Many students visit multiple schools, sometimes over a very short period of time
 
 Project Status / TODO
 ---------------------
-May 27:
+5/27/13:
 App is functional. User can add schools, visit info, and rankings and can view a list of all schools and a detailed view of each school's data.
 
 TODO:
@@ -26,24 +29,25 @@ TODO:
   <li> Add ability to type school's list/index # when viewing list of schools to see its info.</li>
   <li> Add feature to list all schools by overall ranking</li>
   <li> Add method to average the rankings</li>
-  <li> Add feature to weigh ranking categories by importance.
+  <li> Add feature to weigh ranking categories by importance</li>
 </ul>
 
-May 24:
+5/24/13:
 In transition from simple, single method for adding three arguments at once to using text
 prompts to generate the table data.
+
 TODO:
 <ul>
-  √<li>Add ability to store yes/no questions about the visit (columns have been created).</li>
-  √<li>Add ranking text prompts.</li>
-  √<li>Create rankings table.</li>
-  √<li>Add ability to store rankings.</li>
+ <li> √ Add ability to store yes/no questions about the visit (columns have been created).</li>
+  <li> √ Add ranking text prompts.</li>
+  <li>√ Create rankings table.</li>
+  <li>√ Add ability to store rankings.</li>
   <li>Add ability to average rankings into one super-score.</li>
-  √<li>Change name of executable for easier user experience.</li>
-  √<li>Add ability to choose a school from the visits list and see all the data about that school.</li>
+  <li>√ Change name of executable for easier user experience.</li>
+  <li>√ Add ability to choose a school from the visits list and see all the data about that school.</li>
 </ul>
 
-May 22:
+5/22/13:
 This project is in initial TDD stages.
 Current functionality:
 Takes three arguments (School name, visit date, single ranking number)
@@ -79,7 +83,7 @@ College town<br>
 Library<br>
 Student friendliness<br>
 Facilities (classrooms/labs/student center)<br>
-**Categories will be weighted by user-customized importance kinda/very/uber**
+Categories will be weighted by user-customized importance kinda/very/uber
 
 **A generated report with the following:**<br>
 General info entered by user<br>
@@ -98,27 +102,28 @@ display visit data input areas
 
 Usage Instructions
 ------------------
-Planned usage is as follows:
+Current usage is as follows:
+
+To launch app/load menu
+
+    > ./trax
 
 To add a new school to the database:
 
-    > ./collegetrax.rb add "<school name>"
+    > ./trax add "School Name"
 
 To view the list of all entered schools:
 
-    > ./collegetrax.rb list_schools
+    > ./trax list
 
 To view a school:
 
-    > ./collegetrax.rb view school "<school name>"
+    > ./trax view "School Name"
 
 To remove a school:
 
-    > ./collegetrax.rb remove "<school name>"
+    > ./trax remove "School Name"
 
-To view the list of all entered schools by highest average ranking:
-
-    > ./collegetrax.rb list_rankings
 
 *Other instructions to come*
 
@@ -129,7 +134,15 @@ To demo the app, you'll have to download it and try it yourself.
 
 Known Bugs
 ----------
-None, yet! But just wait.
+5/28
+
+<ul>
+<li>Entering date in unrecognized format throws error.</li>
+<li>Entering duplicate school name fails validation, but method continues running.</li>
+<li>Entering ./trax add "School Name" saves to tracker but no way to go back and add visit date.</li>
+<li>Rankings above "5" can be entered and saved.</li>
+<li>Listing schools by rating not functioning.</li>
+</ul>
 
 Author
 ------
