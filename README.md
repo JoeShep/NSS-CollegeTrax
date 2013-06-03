@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/JoeShep/NSS-CollegeTrax.png)](https://travis-ci.org/JoeShep/NSS-CollegeTrax)
-
+[![Code Climate](https://codeclimate.com/github/JoeShep/NSS-CollegeTrax.png)](https://codeclimate.com/github/JoeShep/NSS-CollegeTrax)
 
 NSS-CollegeTrax
 =====================
