@@ -16,6 +16,31 @@ module TextPrompts
     EOS
   end
 
+  def contact_info_prompt(visit_data)
+    puts "  Enter contact name:"
+      visit_data["name"] = $stdin.gets.chomp
+    puts "  Enter contact_email:"
+      visit_data["email"] = $stdin.gets.chomp
+    puts "  Enter contact_phone:"
+      visit_data["phone"] = $stdin.gets.chomp
+  end
+
+  def visit_info_prompt(visit_data)
+    puts "  Was school in session?"
+      visit_data["session"] = $stdin.gets.chomp
+    puts "  Did you take a guided tour?"
+      visit_data["tour"] = $stdin.gets.chomp
+    puts "  Did you do an admissions interview?"
+      visit_data["interview"] = $stdin.gets.chomp
+    puts "  Did you attend an info session?"
+      visit_data["info"] = $stdin.gets.chomp
+    puts "  Did you stay overnight on campus?"
+      visit_data["overnight"] = $stdin.gets.chomp
+    puts "  Did you attend any classes?"
+      visit_data["classes"] = $stdin.gets.chomp
+    add_visit_data(visit_data)
+  end
+
   def yes_no_prompt2
     yes_no_prompt2 = <<-EOS
 
@@ -34,7 +59,8 @@ module TextPrompts
     puts skip_rankings
   end
 
-  def ranking_prompt
+  def ranking_prompt(school)
+    rankings = {}
     ranking_prompt = <<-EOS
 
     Now for the fun part! Rank the following categories from 1 to 5.
@@ -43,6 +69,35 @@ module TextPrompts
     ================================================================
 
     EOS
+    puts "  1) My overall ranking for #{school}"
+      rankings["overall"] = $stdin.gets.chomp
+    puts "  2) Dorms"
+      rankings["dorms"] = $stdin.gets.chomp
+    puts "  3) Dining services (Food quality)"
+      rankings["dining"] = $stdin.gets.chomp
+    puts "  4) Dining services (Special diets accessibility)"
+      rankings["diets"] = $stdin.gets.chomp
+    puts "  5) Classes/majors offerings"
+      rankings["majors"] = $stdin.gets.chomp
+    puts "  6) Library facilities"
+      rankings["library"] = $stdin.gets.chomp
+    puts "  7) Classroom facilities"
+      rankings["classrooms"] = $stdin.gets.chomp
+    puts "  8) Student center"
+      rankings["s_center"] = $stdin.gets.chomp
+    puts "  9) The students themselves"
+      rankings["students"] = $stdin.gets.chomp
+    puts "  10) Surrounding town/city"
+      rankings["town"] = $stdin.gets.chomp
+    puts "  12) Off-campus food choices"
+      rankings["food_off_campus"] = $stdin.gets.chomp
+    puts "  13) Intramural sports"
+      rankings["sports"] = $stdin.gets.chomp
+    puts "  14) Other activities and clubs"
+      rankings["clubs"] = $stdin.gets.chomp
+    puts "  15) Campus appearance"
+      rankings["campus"] = $stdin.gets.chomp
+    add_rankings(rankings, school)
   end
 
   def format_tracker(school)
